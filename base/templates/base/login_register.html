@@ -61,8 +61,15 @@
            <div>
             <form method="POST" action="">
                 {% csrf_token%}
+
+                {% for field in form %}
+
+                <div class="form__group form__group">
+                  <label for="room_name">{{field.label}}</label>
+                  {{field}}
+                </div>
         
-                {{form.as_p}}
+                {% endfor %}
                 
                 <input type="submit" value="Sign Up" />
         

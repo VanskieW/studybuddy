@@ -10,11 +10,7 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 
 
-# rooms = [
-#     {"id": 1, "name": "Python"},
-#     {"id": 2, "name": "Javascript"},
-#     {"id": 3, "name": "React"},
-# ]
+# Create your views here
 
 def loginPage(request):
     page = 'login'
@@ -192,4 +188,11 @@ def updateUser(request):
             return redirect('user-profile', pk=user.id)
     
     return render(request, 'base/update-user.html',{'form': form})
-# Create your views here
+
+def topicsPage(request):
+    topics = Topic.objects.all()
+    
+        
+        
+    return render (request, 'base/topics.html', {'topics': topics})
+
